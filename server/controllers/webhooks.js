@@ -37,17 +37,10 @@ export const clerkWebhooks = async (req,res)=>{
                 resume: ''
                }
 
-            //    await User.create(userData)
-            //    res.json({})
-            //    break;
-            try {
-                await User.create(userData);
-                console.log("User successfully saved to MongoDB");
-            } catch (err) {
-                console.error("Error saving user to MongoDB:", err.message);
-                return res.status(500).json({ success: false, message: "Database error" });
-            }
-            }
+               await User.create(userData)
+               res.json({})
+               break;
+           }
 
             case 'user.updated' : {
                 const userData={
@@ -72,10 +65,10 @@ export const clerkWebhooks = async (req,res)=>{
         }
     }catch(error){
 
-        console.error("Error processing webhook:", error.message, error.stack);
+        //console.error("Error processing webhook:", error.message, error.stack);
         //res.status(500).json({ success: false, message: "Webhooks error" });
-       // console.log(error.message);
-        res.json({success:false,message:"Webhooks error hhh"})
+        console.log(error.message);
+        res.json({success:false,message:"Webhooks error"})
     }
 }
 
