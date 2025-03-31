@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import axios from 'axios'
+import axios from 'axios';
 import { useAuth, useUser } from "@clerk/clerk-react";
 
 export const AppContext=createContext();
